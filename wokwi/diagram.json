@@ -1,0 +1,118 @@
+{
+  "version": 1,
+  "author": "AirSwitch Team",
+  "editor": "wokwi",
+
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+
+    {
+      "type": "wokwi-led",
+      "id": "light",
+      "top": 20,
+      "left": 300,
+      "attrs": {
+        "color": "yellow"
+      }
+    },
+
+    {
+      "type": "wokwi-resistor",
+      "id": "res",
+      "top": 20,
+      "left": 250,
+      "attrs": {
+        "value": "220"
+      }
+    },
+
+    {
+      "type": "wokwi-stepper-motor",
+      "id": "fan",
+      "top": 180,
+      "left": 300,
+      "attrs": {
+        "size": "28"
+      }
+    }
+  ],
+
+  "connections": [
+    [
+      "esp:D2",
+      "res:1",
+      "green",
+      []
+    ],
+
+    [
+      "res:2",
+      "light:A",
+      "green",
+      []
+    ],
+
+    [
+      "light:C",
+      "esp:GND.1",
+      "black",
+      []
+    ],
+
+    [
+      "esp:D16",
+      "fan:A+",
+      "green",
+      []
+    ],
+
+    [
+      "esp:D17",
+      "fan:A-",
+      "green",
+      []
+    ],
+
+    [
+      "esp:D18",
+      "fan:B+",
+      "green",
+      []
+    ],
+
+    [
+      "esp:D19",
+      "fan:B-",
+      "green",
+      []
+    ],
+
+    [
+      "esp:TX0",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+
+    [
+      "esp:RX0",
+      "$serialMonitor:TX",
+      "",
+      []
+    ]
+  ],
+
+  "dependencies": {},
+
+  "serialMonitor": {
+    "display": "always",
+    "newline": "lf",
+    "convertEol": false
+  }
+}
